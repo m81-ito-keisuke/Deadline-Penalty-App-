@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deadline Penalty | 期限ペナルティアプリ</title>
+    <meta name="description" content="タスクに期限と金額を設定し、期限内に完了できなければペナルティが課金されるアプリ">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Flatpickr for calendar popup -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">⏰ Deadline Penalty</h1>
+                <p class="tagline">期限を守れなければ、お金を払う。</p>
+                <div class="current-time-display">
+                    <span class="time-label">現在時刻</span>
+                    <span class="time-value" id="current-time">--:--:--</span>
+                </div>
+            </div>
+            <div class="penalty-summary">
+                <div class="penalty-card">
+                    <span class="penalty-label">累計ペナルティ</span>
+                    <span class="penalty-amount" id="total-penalty">¥0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Task Form -->
+        <section class="form-section">
+            <form id="task-form" class="task-form">
+                <div class="form-group">
+                    <label for="task-name">タスク名</label>
+                    <input type="text" id="task-name" placeholder="例: レポートを完成させる" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="task-deadline">期限</label>
+                        <input type="datetime-local" id="task-deadline" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-penalty">ペナルティ金額</label>
+                        <div class="input-with-prefix">
+                            <span class="prefix">¥</span>
+                            <input type="number" id="task-penalty" placeholder="1000" min="0" required>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit">
+                    <span class="btn-icon">+</span>
+                    タスクを追加
+                </button>
+            </form>
+        </section>
+
+        <!-- Active Tasks -->
+        <section class="tasks-section">
+            <h2 class="section-title">
+                <span class="title-icon">🔥</span>
+                アクティブタスク
+            </h2>
+            <div id="active-tasks" class="tasks-list">
+                <!-- Tasks will be inserted here -->
+            </div>
+            <div id="no-tasks" class="no-tasks">
+                <div class="no-tasks-icon">📝</div>
+                <p>タスクがありません</p>
+                <p class="no-tasks-hint">上のフォームからタスクを追加してください</p>
+            </div>
+        </section>
+
+        <!-- Completed/Failed Tasks -->
+        <section class="history-section">
+            <h2 class="section-title">
+                <span class="title-icon">📊</span>
+                履歴
+            </h2>
+            <div id="history-tasks" class="tasks-list history-list">
+                <!-- History will be inserted here -->
+            </div>
+            <div id="no-history" class="no-tasks">
+                <p>履歴がありません</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
