@@ -2,7 +2,8 @@
   "name": "Deadline Penalty",
   "short_name": "Deadline",
   "description": "タスクに期限と金額を設定し、期限内に完了できなければペナルティが課金されるアプリ",
-  "start_url": "/",
+  "start_url": "/Deadline-Penalty-App-/",
+  "scope": "/Deadline-Penalty-App-/",
   "display": "standalone",
   "background_color": "#0d0d1a",
   "theme_color": "#667eea",
@@ -22,5 +23,8 @@
     }
   ],
   "lang": "ja",
-  "categories": ["productivity", "utilities"]
+  "categories": [
+    "productivity",
+    "utilities"
+  ]
 }
